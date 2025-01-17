@@ -1,0 +1,16 @@
+version: '3'
+
+services:
+  db:
+    image: postgres:15
+    environment:
+      POSTGRES_USER: g2l
+      POSTGRES_PASSWORD: g2l
+      POSTGRES_DB: g2l
+    volumes:
+      - ./database/volumes:/var/lib/postgresql/data
+    ports:
+      - 5432:5432
+
+volumes:
+  postgres-data:

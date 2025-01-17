@@ -1,0 +1,104 @@
+openapi: 3.0.3
+info:
+  title: G2L Backend API Gateway
+  version: 1.0.0
+
+servers:
+  - url: "http://localhost:8080"
+    description: "Development server"
+
+tags:
+  - name: "Vehicle"
+    description: "API for reading vehicle information"
+  - name: "Customer"
+    description: "API for reading customer information"
+  - name: "Rental"
+    description: "API for reading rental contracts"
+  - name: "Authentication"
+    description: "API for user authentication"
+
+paths:
+  /vehicles:
+    $ref: 'referentiel.yml#/paths/~1vehicles'
+  /customers:
+    $ref: 'customer.yml#/paths/~1customers'
+  /rentals:
+    $ref: 'rental.yml#/paths/~1rentals'
+  /register:
+    post:
+      tags:
+        - "Authentication"
+      summary: Register a new user
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/User'
+      responses:
+        '201':
+          description: User successfully registered
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+        '400':
+          description: Bad request
+
+  /login:
+    post:
+      tags:
+        - "Authentication"
+      summary: User login
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                username:
+                  type: string
+                password:
+                  type: string
+              required:
+                - username
+                - password
+      responses:
+        '200':
+          description: Successful login
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AuthenticationResponse'
+        '401':
+          description: Unauthorized
+
+components:
+  schemas:
+    Vehicle:
+      $ref: 'referentiel.yml#/components/schemas/Vehicle'
+    Customer:
+      $ref: 'customer.yml#/components/schemas/Customer'
+    Rental:
+      $ref: 'rental.yml#/components/schemas/Rental'
+    User:
+      type: object
+      properties:
+        id:
+          type: integer
+        username:
+          type: string
+        password:
+          type: string
+      required:
+        - id
+        - username
+        - password
+    AuthenticationResponse:
+      type: object
+      properties:
+        accessToken:
+          type: string
+      required:
+        - accessToken

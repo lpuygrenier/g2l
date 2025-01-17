@@ -1,0 +1,49 @@
+openapi: 3.0.3
+info:
+  title: Rental API
+  version: 1.0.0
+
+servers:
+  - url: "http://localhost:8080"
+    description: "Development server"
+
+tags:
+  - name: "Rental"
+    description: "API for reading rental contracts"
+
+paths:
+  /rentals:
+    get:
+      tags:
+        - "Rental"
+      operationId: "getRentals"
+      summary: Get all rentals
+      responses:
+        '200':
+          description: List of rentals
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Rental'
+
+components:
+  schemas:
+    Rental:
+      type: object
+      properties:
+        id:
+          type: integer
+        vehicle_id:
+          type: integer
+        customer_id:
+          type: integer
+        rental_date:
+          type: string
+          format: date
+      required:
+        - id
+        - vehicle_id
+        - customer_id
+        - rental_date

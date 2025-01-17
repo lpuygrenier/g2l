@@ -1,0 +1,48 @@
+openapi: 3.0.3
+info:
+  title: Vehicle API
+  version: 1.0.0
+
+servers:
+  - url: "http://localhost:8080"
+    description: "Development server"
+
+tags:
+  - name: "Vehicle"
+    description: "API for reading vehicle information"
+
+paths:
+  /vehicles:
+    get:
+      tags:
+        - "Vehicle"
+      operationId: "getVehicles"
+      summary: Get all vehicles
+      responses:
+        '200':
+          description: List of vehicles
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Vehicle'
+
+components:
+  schemas:
+    Vehicle:
+      type: object
+      properties:
+        id:
+          type: integer
+        make:
+          type: string
+        model:
+          type: string
+        year:
+          type: integer
+      required:
+        - id
+        - make
+        - model
+        - year
