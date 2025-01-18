@@ -1,0 +1,12 @@
+# Définition des différentes routes
+- /login
+- /dashboard
+- /customers
+    - /customers/create
+    - /customers/edit/{uuid}
+    - /customers/consult/{uuid}
+- /vehicles
+    - /vehicles/create
+    - /vehicles/edit/{uuid}
+    - /vehicles/consult/{uuid}
+- /rentals

@@ -1,0 +1,136 @@
+openapi: 3.1.0
+info:
+  title: G2L Backend API
+  version: 1.0.0
+
+servers:
+  - url: "http://localhost:8080"
+    description: "serveur de développement"
+
+tags:
+  - name: "Vehicle"
+    description: "API de lecture des véhicules"
+  - name: "Customer"
+    description: "API de lecture des clients"
+  - name: "Rental"
+    description: "API de lecture des contrats de location"
+
+paths:
+  /vehicles:
+    get:
+      tags:
+        - "Vehicle"
+      operationId: "getVehicles"
+      summary: Get all vehicles
+      responses:
+        '200':
+          description: List of vehicles
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Vehicle'
+  /customers:
+    get:
+      tags:
+        - "Customer"
+      operationId: "getCustomers"
+      summary: Get all customers
+      responses:
+        '200':
+          description: List of customers
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Customer'
+  /rentals:
+    get:
+      tags:
+        - "Rental"
+      operationId: "getRentals"
+      summary: Get all rentals
+      responses:
+        '200':
+          description: List of rentals
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Rental'
+
+components:
+  schemas:
+    Vehicle:
+      type: object
+      properties:
+        id:
+          type: integer
+        make:
+          type: string
+        model:
+          type: string
+        year:
+          type: integer
+      required:
+        - id
+        - make
+        - model
+        - year
+
+    Customer:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        email:
+          type: string
+      required:
+        - id
+        - name
+        - email
+
+    Rental:
+      type: object
+      properties:
+        id:
+          type: integer
+        vehicle_id:
+          type: integer
+        customer_id:
+          type: integer
+        rental_date:
+          type: string
+          format: date
+      required:
+        - id
+        - vehicle_id
+        - customer_id
+        - rental_date
+
+    User:
+      type: object
+      properties:
+        id:
+          type: integer
+        username:
+          type: string
+        password:
+          type: string
+      required:
+        - id
+        - username
+        - password
+
+    AuthenticationResponse:
+      type: object
+      properties:
+        accessToken:
+          type: string
+      required:
+        - accessToken
