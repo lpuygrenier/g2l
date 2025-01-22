@@ -194,8 +194,7 @@
 							<inputSpec>${project.basedir}/src/main/resources/api/customer.yml</inputSpec>
 							<generatorName>spring</generatorName>
 							<configOptions>
-								<delegatePattern>true</delegatePattern>
-								<interfaceOnly>false</interfaceOnly>
+								<interfaceOnly>true</interfaceOnly>
 								<apiPackage>fr.el.g2l.customer.generated.api</apiPackage>
 								<modelPackage>fr.el.g2l.customer.generated.api.model</modelPackage>
 								<useJakarta>true</useJakarta>
