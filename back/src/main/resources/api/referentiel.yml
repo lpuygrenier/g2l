@@ -46,3 +46,16 @@ components:
         - make
         - model
         - year
+    User:
+      type: object
+      properties:
+        id:
+          type: integer
+        username:
+          type: string
+        password:
+          type: string
+      required:
+        - id
+        - username
+        - password

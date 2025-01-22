@@ -233,57 +233,24 @@
 							<output>${project.build.directory}/generated-sources/openapi-customer</output>
 						</configuration>
 					</execution>
-					<!-- 
 					<execution>
-						<id>generate-rental-api</id>
-						<goals>
-							<goal>generate</goal>
-						</goals>
-						<configuration>
-							<inputSpec>${project.basedir}/src/main/resources/api/rental.yml</inputSpec>
-							<generatorName>java</generatorName>
-							<configOptions>
-								<interfaceOnly>true</interfaceOnly>
-								<apiPackage>fr.el.g2l.rental.generated.api</apiPackage>
-								<modelPackage>fr.el.g2l.rental.generated.api.model</modelPackage>
-							</configOptions>
-							<output>${project.build.directory}/generated-sources/openapi-rental</output>
-						</configuration>
-					</execution>
-					
-					<execution>
-						<id>generate-vehicle-api</id>
+						<id>generate-referentiel-api</id>
 						<goals>
 							<goal>generate</goal>
 						</goals>
 						<configuration>
 							<inputSpec>${project.basedir}/src/main/resources/api/referentiel.yml</inputSpec>
-							<generatorName>java</generatorName>
+							<generatorName>spring</generatorName>
 							<configOptions>
 								<interfaceOnly>true</interfaceOnly>
 								<apiPackage>fr.el.g2l.referentiel.generated.api</apiPackage>
 								<modelPackage>fr.el.g2l.referentiel.generated.api.model</modelPackage>
+								<useJakarta>true</useJakarta>
+								<useSpringBoot3>true</useSpringBoot3>
 							</configOptions>
-							<output>${project.build.directory}/generated-sources/openapi-vehicle</output>
+							<output>${project.build.directory}/generated-sources/openapi-customer</output>
 						</configuration>
 					</execution>
-					
-					<execution>
-						<id>generate-gateway-api</id>
-						<goals>
-							<goal>generate</goal>
-						</goals>
-						<configuration>
-							<inputSpec>${project.basedir}/src/main/resources/api/gateway.yml</inputSpec>
-							<generatorName>java</generatorName>
-							<configOptions>
-								<interfaceOnly>true</interfaceOnly>
-								<apiPackage>fr.el.g2l.gateway.generated.api</apiPackage>
-								<modelPackage>fr.el.g2l.gateway.generated.api.model</modelPackage>
-							</configOptions>
-							<output>${project.build.directory}/generated-sources/openapi-gateway</output>
-						</configuration>
-					</execution> -->
 				</executions>
 			</plugin>
 		</plugins>
