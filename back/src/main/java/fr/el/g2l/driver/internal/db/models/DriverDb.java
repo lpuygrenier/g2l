@@ -1,4 +1,4 @@
-package fr.el.g2l.driver.db.models;
+package fr.el.g2l.driver.internal.db.models;
 
 public class DriverDb {
     

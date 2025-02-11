@@ -4,7 +4,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
-import fr.el.g2l.customer.generated.api.model.Customer;
+import fr.el.g2l.common.dto.Customer;
 import fr.el.g2l.customer.internal.db.mapper.CustomerMapper;
 import fr.el.g2l.customer.internal.db.models.CustomerDb;
 import fr.el.g2l.customer.internal.db.repository.CustomerRepository;

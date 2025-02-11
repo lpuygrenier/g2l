@@ -121,6 +121,30 @@
 			<groupId>org.springframework.security</groupId>
 			<artifactId>spring-security-config</artifactId>
 	    </dependency>
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-core</artifactId>
+		</dependency>
+
+		<!-- JWT Support -->
+		<dependency>
+			<groupId>io.jsonwebtoken</groupId>
+			<artifactId>jjwt-api</artifactId>
+			<version>0.11.5</version>
+		</dependency>
+		<dependency>
+			<groupId>io.jsonwebtoken</groupId>
+			<artifactId>jjwt-impl</artifactId>
+			<version>0.11.5</version>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>io.jsonwebtoken</groupId>
+			<artifactId>jjwt-jackson</artifactId>
+			<version>0.11.5</version>
+			<scope>runtime</scope>
+		</dependency>
+    
 
 
 		<!-- Base de données -->
@@ -225,8 +249,8 @@
 							<generatorName>spring</generatorName>
 							<configOptions>
 								<interfaceOnly>true</interfaceOnly>
-								<apiPackage>fr.el.g2l.customer.generated.api</apiPackage>
-								<modelPackage>fr.el.g2l.customer.generated.api.model</modelPackage>
+								<apiPackage>fr.el.g2l.customer.api</apiPackage>
+								<modelPackage>fr.el.g2l.common.dto</modelPackage>
 								<useJakarta>true</useJakarta>
 								<useSpringBoot3>true</useSpringBoot3>
 							</configOptions>
@@ -243,8 +267,26 @@
 							<generatorName>spring</generatorName>
 							<configOptions>
 								<interfaceOnly>true</interfaceOnly>
-								<apiPackage>fr.el.g2l.referentiel.generated.api</apiPackage>
-								<modelPackage>fr.el.g2l.referentiel.generated.api.model</modelPackage>
+								<apiPackage>fr.el.g2l.referentiel.api</apiPackage>
+								<modelPackage>fr.el.g2l.common.dto</modelPackage>
+								<useJakarta>true</useJakarta>
+								<useSpringBoot3>true</useSpringBoot3>
+							</configOptions>
+							<output>${project.build.directory}/generated-sources/openapi-customer</output>
+						</configuration>
+					</execution>
+					<execution>
+						<id>generate-gateway-api</id>
+						<goals>
+							<goal>generate</goal>
+						</goals>
+						<configuration>
+							<inputSpec>${project.basedir}/src/main/resources/api/gateway.yml</inputSpec>
+							<generatorName>spring</generatorName>
+							<configOptions>
+								<interfaceOnly>true</interfaceOnly>
+								<apiPackage>fr.el.g2l.gateway.api</apiPackage>
+								<modelPackage>fr.el.g2l.common.dto</modelPackage>
 								<useJakarta>true</useJakarta>
 								<useSpringBoot3>true</useSpringBoot3>
 							</configOptions>

@@ -1,27 +1,29 @@
-package fr.el.g2l.referentiel.internal.service;
+package fr.el.g2l.referentiel.api;
 
 import java.util.Optional;
 
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Controller;
 
 import fr.el.g2l.common.dto.User;
 import fr.el.g2l.referentiel.internal.db.mapper.UserMapper;
 import fr.el.g2l.referentiel.internal.db.repository.UserRepository;
 import lombok.AllArgsConstructor;
 
-@Service
+@Controller
 @AllArgsConstructor
-public class UserService {
+public class UserApiImpl implements UserApi {
 
     private final UserRepository userRepository;
     private final UserMapper userMapper;
 
-    Optional<User> findByUsername(String username) {
+    @Override
+    public Optional<User> findByUsername(String username) {
         return userRepository.findByUsername(username)
-                            .map(userMapper::toDto);
+                             .map(userMapper::toDto);
     }
 
-    User save(User user){  
-        return userMapper.toDto(userRepository.save(userMapper.toEntity(user)));
+    @Override
+    public User save(User user) {
+        throw new UnsupportedOperationException("Unimplemented method 'save'");
     }
 }

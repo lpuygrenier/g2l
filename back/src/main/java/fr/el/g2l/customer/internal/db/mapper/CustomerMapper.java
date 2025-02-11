@@ -5,7 +5,7 @@ import java.util.List;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 
-import fr.el.g2l.customer.generated.api.model.Customer;
+import fr.el.g2l.common.dto.Customer;
 import fr.el.g2l.customer.internal.db.models.CustomerDb;
 
 @Mapper(componentModel = "spring")

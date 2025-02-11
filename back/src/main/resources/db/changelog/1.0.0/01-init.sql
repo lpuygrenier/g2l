@@ -1,9 +1,9 @@
---liquibase formatted sql
+-- --liquibase formatted sql
 
---changeset lpuygrenier:01
-CREATE SCHEMA customer;
-CREATE SCHEMA referentiel;
-CREATE SCHEMA rental;
+-- --changeset lpuygrenier:01
+-- CREATE SCHEMA customer;
+-- CREATE SCHEMA referentiel;
+-- CREATE SCHEMA rental;
 
 -- CREATE TABLE referentiel.vehicle (
 --     id SERIAL PRIMARY KEY,
